@@ -3,5 +3,7 @@
     public interface IFuto
     {
         Task<object> GetAllData();
+        Task<object> GetOneData(int id);
+
     }
 }

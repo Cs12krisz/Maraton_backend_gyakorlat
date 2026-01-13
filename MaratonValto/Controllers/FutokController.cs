@@ -28,5 +28,23 @@ namespace MaratonValto.Controllers
                 return NotFound(ex.Message);
             }
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult> GetOneData(int id)
+        {
+            try
+            {
+                var response = await _futo.GetOneData(id);
+                if (response is string)
+                {
+                    return NotFound(response);
+                }
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
     }
 }

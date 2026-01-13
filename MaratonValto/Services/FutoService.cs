@@ -25,5 +25,22 @@ namespace MaratonValto.Services
                 return ex.Message;
             }
         }
+
+        public async Task<object> GetOneData(int id)
+        {
+            try
+            {
+                var oneFuto = await _context.Futoks.FirstOrDefaultAsync(f => f.Fid == id);
+                if (oneFuto != null)
+                {
+                    return oneFuto;
+                }
+                return "Nincs ilyen futó";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
     }
 }

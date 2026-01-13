@@ -128,3 +128,4 @@ C:\Users\CsigerIK\source\repos\MaratonValto\MaratonValto\obj\Debug\net8.0\refint
 C:\Users\CsigerIK\source\repos\MaratonValto\MaratonValto\obj\Debug\net8.0\MaratonValto.pdb
 C:\Users\CsigerIK\source\repos\MaratonValto\MaratonValto\obj\Debug\net8.0\MaratonValto.genruntimeconfig.cache
 C:\Users\CsigerIK\source\repos\MaratonValto\MaratonValto\obj\Debug\net8.0\ref\MaratonValto.dll
+C:\Users\CsigerIK\source\repos\MaratonValto\MaratonValto\obj\Debug\net8.0\MaratonValto.sourcelink.json
