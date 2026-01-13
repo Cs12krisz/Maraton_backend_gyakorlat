@@ -4,6 +4,7 @@
     {
         Task<object> GetAllData();
         Task<object> GetOneData(int id);
+        Task<object> OutOneData(int id);
 
     }
 }

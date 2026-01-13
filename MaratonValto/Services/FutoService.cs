@@ -30,7 +30,7 @@ namespace MaratonValto.Services
         {
             try
             {
-                var oneFuto = await _context.Futoks.FirstOrDefaultAsync(f => f.Fid == id);
+                var oneFuto = await _context.Eredmenyeks.FirstOrDefaultAsync(f => f.FutoNavigation.Fid == id);
                 if (oneFuto != null)
                 {
                     return oneFuto;
