@@ -1,4 +1,5 @@
 ﻿using MaratonValto.Models;
+using MaratonValto.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
 
 namespace MaratonValto.Services
@@ -43,9 +44,32 @@ namespace MaratonValto.Services
             }
         }
 
-        public Task<object> OutOneData(int id)
+        public async Task<object> PutOneData(PutEredmenyDto putEredmenyDto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (putEredmenyDto != null)
+                {
+                    var futo = await _context.Futoks.Include(f => f.Eredmenyeks).FirstOrDefaultAsync(f => f.Fid == putEredmenyDto.Fid);
+                    if (futo != null)
+                    {
+                        foreach (var item in futo.Eredmenyeks)
+                        {
+                            item.Ido = putEredmenyDto.Ido;
+                        }
+                        _context.Update(futo);
+                        await _context.SaveChangesAsync();
+                        return new { value = futo, message = "Sikeres módosítás" };
+                    }
+
+                }
+
+                return "Sikertelen módosítás";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }

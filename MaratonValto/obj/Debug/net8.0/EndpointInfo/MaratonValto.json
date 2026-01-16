@@ -15,6 +15,35 @@
             "description": "OK"
           }
         }
+      },
+      "put": {
+        "tags": [
+          "Futok"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PutEredmenyDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PutEredmenyDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PutEredmenyDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/api/Futok/{id}": {
@@ -41,5 +70,22 @@
       }
     }
   },
-  "components": { }
+  "components": {
+    "schemas": {
+      "PutEredmenyDto": {
+        "type": "object",
+        "properties": {
+          "fid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ido": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
 }

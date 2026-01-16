@@ -1,4 +1,5 @@
-﻿using MaratonValto.Services;
+﻿using MaratonValto.Models.Dtos;
+using MaratonValto.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -40,6 +41,24 @@ namespace MaratonValto.Controllers
                     return NotFound(response);
                 }
                 return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> GetOneData(PutEredmenyDto putEredmenyDto)
+        {
+            try
+            {
+                var response = await _futo.PutOneData(putEredmenyDto);
+                if (response is string)
+                {
+                    return NotFound(response);
+                }
+                return StatusCode(201, response);
             }
             catch (Exception ex)
             {

@@ -12,6 +12,22 @@
   {
     "ContainingType": "MaratonValto.Controllers.FutokController",
     "Method": "GetOneData",
+    "RelativePath": "api/Futok",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "putEredmenyDto",
+        "Type": "MaratonValto.Models.Dtos.PutEredmenyDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaratonValto.Controllers.FutokController",
+    "Method": "GetOneData",
     "RelativePath": "api/Futok/{id}",
     "HttpMethod": "GET",
     "IsController": true,
