@@ -27,7 +27,7 @@
   },
   {
     "ContainingType": "MaratonValto.Controllers.FutokController",
-    "Method": "GetOneData",
+    "Method": "PutOneData",
     "RelativePath": "api/Futok",
     "HttpMethod": "PUT",
     "IsController": true,

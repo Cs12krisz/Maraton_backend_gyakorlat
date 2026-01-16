@@ -49,7 +49,7 @@ namespace MaratonValto.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> GetOneData(PutEredmenyDto putEredmenyDto)
+        public async Task<ActionResult> PutOneData(PutEredmenyDto putEredmenyDto)
         {
             try
             {
