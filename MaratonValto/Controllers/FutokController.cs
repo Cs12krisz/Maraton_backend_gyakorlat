@@ -84,5 +84,20 @@ namespace MaratonValto.Controllers
                 return NotFound(ex.Message);
             }
         }
+
+        [HttpGet("FemalesData")]
+        public async Task<ActionResult> GetFemalesData()
+        {
+            try
+            {
+                var response = await _futo.GetFemalesData();
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

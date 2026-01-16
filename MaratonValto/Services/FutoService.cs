@@ -48,6 +48,24 @@ namespace MaratonValto.Services
             }
         }
 
+        public async Task<object> GetFemalesData()
+        {
+            try
+            {
+                var noiVersenyzok = _context.Futoks.Where(f => f.Ffi == false).Select(f => new
+                {
+                    f.Fnev,
+                    f.Szulev,
+                })
+                .OrderBy(f => f.Fnev);
+                return noiVersenyzok;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public async Task<object> GetOneData(int id)
         {
             try

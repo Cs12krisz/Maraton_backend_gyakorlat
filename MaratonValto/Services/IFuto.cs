@@ -8,6 +8,8 @@ namespace MaratonValto.Services
         Task<object> GetOneData(int id);
         Task<object> PutOneData(PutEredmenyDto putEredmenyDto);
         Task<object> DeleteOneData(int id);
+        Task<object> GetFemalesData();
 
+        
     }
 }
