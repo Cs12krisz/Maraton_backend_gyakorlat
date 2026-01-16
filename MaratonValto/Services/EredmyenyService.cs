@@ -12,9 +12,30 @@ namespace MaratonValto.Services
             _context = context;
         }
 
-        public async Task<object> PutOneData(PutEredmenyDto putEredmenyDto)
+        public async Task<object> PostOneData(PostEredmenyDto postEredmenyDto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (postEredmenyDto != null)
+                {
+
+                    var newEredmeny = new Eredmenyek() 
+                    { 
+                        Futo = postEredmenyDto.Futo,
+                        Kor = postEredmenyDto.Kor,
+                        Ido = postEredmenyDto.Ido,
+                    };
+                    await _context.Eredmenyeks.AddAsync(newEredmeny);
+                    await _context.SaveChangesAsync();
+                    return new { value = newEredmeny, message = "Sikeres hozzáadás" };
+                }
+
+                return "Sikertelen hozzáadás";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }

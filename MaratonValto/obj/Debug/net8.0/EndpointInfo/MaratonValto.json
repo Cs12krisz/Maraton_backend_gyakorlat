@@ -5,6 +5,37 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Eredmeny": {
+      "post": {
+        "tags": [
+          "Eredmeny"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostEredmenyDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostEredmenyDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostEredmenyDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Futok": {
       "get": {
         "tags": [
@@ -92,6 +123,24 @@
   },
   "components": {
     "schemas": {
+      "PostEredmenyDto": {
+        "type": "object",
+        "properties": {
+          "futo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kor": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ido": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "PutEredmenyDto": {
         "type": "object",
         "properties": {

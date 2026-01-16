@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "MaratonValto.Controllers.EredmenyController",
+    "Method": "PostOneData",
+    "RelativePath": "api/Eredmeny",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postEredmenyDto",
+        "Type": "MaratonValto.Models.Dtos.PostEredmenyDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MaratonValto.Controllers.FutokController",
     "Method": "GetAllData",
     "RelativePath": "api/Futok",

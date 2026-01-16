@@ -4,6 +4,6 @@ namespace MaratonValto.Services
 {
     public interface IEredmeny
     {
-        Task<object> PutOneData(PutEredmenyDto putEredmenyDto);
+        Task<object> PostOneData(PostEredmenyDto postEredmenyDto);
     }
 }
