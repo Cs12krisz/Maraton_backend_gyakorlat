@@ -16,4 +16,6 @@ public partial class Futok
     public int? Csapat { get; set; }
 
     public bool? Ffi { get; set; }
+
+    public virtual ICollection<Eredmenyek> Eredmenyeks { get; set; } = new List<Eredmenyek>();
 }

@@ -16,7 +16,7 @@ namespace MaratonValto.Services
         {
             try
             {
-                var futok = await _context.Futoks.ToArrayAsync();
+                var futok = await _context.Futoks.Include(f => f.Eredmenyeks).ToArrayAsync();
                 return futok;
             }
             catch (Exception ex)
@@ -30,7 +30,7 @@ namespace MaratonValto.Services
         {
             try
             {
-                var oneFuto = await _context.Eredmenyeks.FirstOrDefaultAsync(f => f.FutoNavigation.Fid == id);
+                var oneFuto = await _context.Futoks.Include(f => f.Eredmenyeks).FirstOrDefaultAsync(e => e.Fid == id);
                 if (oneFuto != null)
                 {
                     return oneFuto;
@@ -41,6 +41,11 @@ namespace MaratonValto.Services
             {
                 return ex.Message;
             }
+        }
+
+        public Task<object> OutOneData(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

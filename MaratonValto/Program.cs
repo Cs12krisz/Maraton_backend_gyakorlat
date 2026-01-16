@@ -1,6 +1,7 @@
 
 using MaratonValto.Models;
 using MaratonValto.Services;
+using System.Text.Json.Serialization;
 
 namespace MaratonValto
 {
@@ -19,6 +20,18 @@ namespace MaratonValto
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", policy =>
+                {
+                    policy.AllowAnyOrigin()
+                          .AllowAnyMethod()
+                          .AllowAnyHeader();
+                });
+            });
+
+            builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -27,6 +40,8 @@ namespace MaratonValto
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseCors("AllowAll");
 
             app.UseHttpsRedirection();
 
