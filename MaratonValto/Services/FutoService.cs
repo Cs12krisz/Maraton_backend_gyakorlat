@@ -13,6 +13,27 @@ namespace MaratonValto.Services
             _context = context;
         }
 
+        public async Task<object> DeleteOneData(int id)
+        {
+            try
+            {
+                var torlendoFuto = await _context.Futoks.FirstOrDefaultAsync(f => f.Fid == id);
+
+                if (torlendoFuto != null)
+                {
+                    _context.Remove(torlendoFuto);
+                    await _context.SaveChangesAsync();
+                    return new { value = torlendoFuto, message = "Sikeres törlés" };
+                }
+
+                return "Sikertelen törlés";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public async Task<object> GetAllData()
         {
             try
@@ -53,10 +74,8 @@ namespace MaratonValto.Services
                     var futo = await _context.Futoks.Include(f => f.Eredmenyeks).FirstOrDefaultAsync(f => f.Fid == putEredmenyDto.Fid);
                     if (futo != null)
                     {
-                        foreach (var item in futo.Eredmenyeks)
-                        {
-                            item.Ido = putEredmenyDto.Ido;
-                        }
+                        var eredmeny = futo.Eredmenyeks.FirstOrDefault(e => e.Kor == putEredmenyDto.Kor);
+                        eredmeny.Ido = putEredmenyDto.Ido;
                         _context.Update(futo);
                         await _context.SaveChangesAsync();
                         return new { value = futo, message = "Sikeres módosítás" };

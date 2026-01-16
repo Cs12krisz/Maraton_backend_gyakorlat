@@ -65,5 +65,24 @@ namespace MaratonValto.Controllers
                 return NotFound(ex.Message);
             }
         }
+
+        [HttpDelete]
+        public async Task<ActionResult> DeleteOneData(int id)
+        {
+            try
+            {
+                var response = await _futo.DeleteOneData(id);
+                if (response is string)
+                {
+                    return NotFound(response);
+                }
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
     }
 }

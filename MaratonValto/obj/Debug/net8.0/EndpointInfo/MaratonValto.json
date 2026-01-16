@@ -44,6 +44,26 @@
             "description": "OK"
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "Futok"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/api/Futok/{id}": {
@@ -76,6 +96,10 @@
         "type": "object",
         "properties": {
           "fid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kor": {
             "type": "integer",
             "format": "int32"
           },
